@@ -4,10 +4,10 @@ import 'package:percent_indicator/percent_indicator.dart';
 import 's3.dart';
 
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
-import 'dart:async';
-import 'dart:io';
+//import 'dart:async';
+//import 'dart:io';
 import 'dart:ui';
-import 'package:charcode/ascii.dart';
+//import 'package:charcode/ascii.dart';
 import 'dart:convert';
 import 'dart:typed_data';
 

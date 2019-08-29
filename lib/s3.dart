@@ -29,65 +29,75 @@ class _S3State extends State<S3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(
-                height: 30,
-              ),
-              Card(
-                elevation: 1.0,
-                child: Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: Container(
-                    width: 300,
-                    height: 300,
-                    child: SimpleLineChart.withSampleData(),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/screen_s1.jpg"),
+//              image: AssetImage("assets/img/knee_animation.gif"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        width: MediaQuery.of(context).size.width,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(
+                  height: 30,
+                ),
+                Card(
+                  elevation: 1.0,
+                  child: Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: Container(
+                      width: 300,
+                      height: 300,
+                      child: SimpleLineChart.withSampleData(),
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 40,
-              ),
+                SizedBox(
+                  height: 40,
+                ),
 //              Text(
 //                "Congratulations !",
 //                style: TextStyle(fontSize: 18.0,fontWeight: FontWeight.bold,color: Colors.green[700]),
 //              ),
-              Text(
-                "Your session is complete.",
-                style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.normal,color: Colors.green[700]),
-              ),
-              Text("Max Value: 12",
-                style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold,color: Colors.green[700]),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              RaisedButton(
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Row(
-                    children: <Widget>[
-                      Icon(Icons.done,color: Colors.green,),
-                      Text("  Done",style: TextStyle(color: Colors.green),),
-                    ],
+                Text(
+                  "Your session is complete.",
+                  style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.normal,color: Colors.green[700]),
+                ),
+                Text("Max Value: 12",
+                  style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold,color: Colors.green[700]),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                RaisedButton(
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      children: <Widget>[
+                        Icon(Icons.done,color: Colors.green,),
+                        Text("  Done",style: TextStyle(color: Colors.green),),
+                      ],
+                    ),
+                  ),
+                  color: Colors.white,
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  shape: RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(30.0),
                   ),
                 ),
-                color: Colors.white,
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                shape: RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(30.0),
-                ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
 //      Column(
 //        crossAxisAlignment: CrossAxisAlignment.center,

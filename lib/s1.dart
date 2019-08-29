@@ -19,103 +19,114 @@ class _S1State extends State<S1> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Padding(
-          padding: const EdgeInsets.only(top: 30.0),
-          child: Column(
-            // Column is also layout widget. It takes a list of children and
-            // arranges them vertically. By default, it sizes itself to fit its
-            // children horizontally, and tries to be as tall as its parent.
-            //
-            // Invoke "debug painting" (press "p" in the console, choose the
-            // "Toggle Debug Paint" action from the Flutter Inspector in Android
-            // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-            // to see the wireframe for each widget.
-            //
-            // Column has various properties to control how it sizes itself and
-            // how it positions its children. Here we use mainAxisAlignment to
-            // center the children vertically; the main axis here is the vertical
-            // axis because Columns are vertical (the cross axis would be
-            // horizontal).
-            mainAxisAlignment: MainAxisAlignment.center,
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/screen_s1.jpg"),
+//              image: AssetImage("assets/img/knee_animation.gif"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          width: MediaQuery.of(context).size.width,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 30.0),
+            child: Column(
+              // Column is also layout widget. It takes a list of children and
+              // arranges them vertically. By default, it sizes itself to fit its
+              // children horizontally, and tries to be as tall as its parent.
+              //
+              // Invoke "debug painting" (press "p" in the console, choose the
+              // "Toggle Debug Paint" action from the Flutter Inspector in Android
+              // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
+              // to see the wireframe for each widget.
+              //
+              // Column has various properties to control how it sizes itself and
+              // how it positions its children. Here we use mainAxisAlignment to
+              // center the children vertically; the main axis here is the vertical
+              // axis because Columns are vertical (the cross axis would be
+              // horizontal).
+              mainAxisAlignment: MainAxisAlignment.center,
 
-            children: <Widget>[
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      top: 18.0, bottom: 18.0, right: 8.0, left: 8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      new Container(
-                        width: 130.0,
-                        height: 130.0,
-                        decoration: new BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: new DecorationImage(
-                            fit: BoxFit.fill,
-                            image: new AssetImage(
-                              'assets/img/dp.jpg',
+              children: <Widget>[
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        top: 18.0, bottom: 18.0, right: 8.0, left: 8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        new Container(
+                          width: 130.0,
+                          height: 130.0,
+                          decoration: new BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: new DecorationImage(
+                              fit: BoxFit.fill,
+                              image: new AssetImage(
+                                'assets/img/dp.jpg',
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text("  Deepika Padukon "),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text("  Female      "),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text("  18      "),
-                        ],
-                      )
-                    ],
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text("  Deepika Padukon "),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text("  Female      "),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text("  18      "),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  elevation: 4.0,
+                  margin: EdgeInsets.all(20.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
                 ),
-                elevation: 2.0,
-                margin: EdgeInsets.all(20.0),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15.0),
+                SizedBox(
+                  height: 80,
                 ),
-              ),
-              SizedBox(
-                height: 80,
-              ),
-              RaisedButton(
-                  child: Padding(
-                    padding: const EdgeInsets.all(18.0),
-                    child: Text("       Records      "),
-                  ),
-                  color: Colors.white,
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => S4(),
-                      ),);
-                  },
-                  shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(30.0))),
-              SizedBox(
-                height: 20,
-              ),
-              RaisedButton(
-                  child: Padding(
-                    padding: const EdgeInsets.all(18.0),
-                    child: Text("          Start          "),
-                  ),
-                  color: Colors.white,
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => S2(),
-                      ),);
-                  },
-                  shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(30.0))),
+                RaisedButton(
+                  elevation: 3.0,
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text("       Records      "),
+                    ),
+                    color: Colors.white,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => S4(),
+                        ),);
+                    },
+                    shape: RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(30.0))),
+                SizedBox(
+                  height: 14,
+                ),
+                RaisedButton(
+                  elevation: 3.0,
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text("          Start          "),
+                    ),
+                    color: Colors.white,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => S2(),
+                        ),);
+                    },
+                    shape: RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(30.0))),
 //            Text(
 //              'You have pushed the button this many times:',
 //            ),
@@ -123,7 +134,8 @@ class _S1State extends State<S1> {
 //              '$_counter',
 //              style: Theme.of(context).textTheme.display1,
 //            ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

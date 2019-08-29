@@ -47,18 +47,18 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+//  int _counter = 0;
+//
+//  void _incrementCounter() {
+//    setState(() {
+//      // This call to setState tells the Flutter framework that something has
+//      // changed in this State, which causes it to rerun the build method below
+//      // so that the display can reflect the updated values. If we changed
+//      // _counter without calling setState(), then the build method would not be
+//      // called again, and so nothing would appear to happen.
+//      _counter++;
+//    });
+//  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,43 +77,65 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Padding(
-          padding: const EdgeInsets.only(top:300.0),
-          child: Column(
-            // Column is also layout widget. It takes a list of children and
-            // arranges them vertically. By default, it sizes itself to fit its
-            // children horizontally, and tries to be as tall as its parent.
-            //
-            // Invoke "debug painting" (press "p" in the console, choose the
-            // "Toggle Debug Paint" action from the Flutter Inspector in Android
-            // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-            // to see the wireframe for each widget.
-            //
-            // Column has various properties to control how it sizes itself and
-            // how it positions its children. Here we use mainAxisAlignment to
-            // center the children vertically; the main axis here is the vertical
-            // axis because Columns are vertical (the cross axis would be
-            // horizontal).
-            mainAxisAlignment: MainAxisAlignment.center,
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/screen_main.jpg"),
+//              image: AssetImage("assets/img/knee_animation.gif"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          width: MediaQuery.of(context).size.width,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 330.0),
+            child: Column(
+              // Column is also layout widget. It takes a list of children and
+              // arranges them vertically. By default, it sizes itself to fit its
+              // children horizontally, and tries to be as tall as its parent.
+              //
+              // Invoke "debug painting" (press "p" in the console, choose the
+              // "Toggle Debug Paint" action from the Flutter Inspector in Android
+              // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
+              // to see the wireframe for each widget.
+              //
+              // Column has various properties to control how it sizes itself and
+              // how it positions its children. Here we use mainAxisAlignment to
+              // center the children vertically; the main axis here is the vertical
+              // axis because Columns are vertical (the cross axis would be
+              // horizontal).
+              mainAxisAlignment: MainAxisAlignment.center,
 
-            children: <Widget>[
-              RaisedButton(
-                  child: Text("       Sign In      "),
-                  color: Colors.white,
-                  onPressed: (){},
-                  shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0))
-              ),
-              RaisedButton(
-                  child: Text("        Login        "),
-                  color: Colors.white,
-                  onPressed: (){
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => S1(),
-                    ),);
-                  },
-                  shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0))
-              ),
+              children: <Widget>[
+                RaisedButton(
+                  elevation: 3.0,
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text("          Sign In         "),
+                    ),
+                    color: Colors.grey[100],
+                    onPressed: () {},
+                    shape: RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(20.0))),
+                SizedBox(
+                  height: 14,
+                ),
+                RaisedButton(
+                  elevation: 3.0,
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text("           Login           "),
+                    ),
+                    color: Colors.grey[200],
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => S1(),
+                        ),
+                      );
+                    },
+                    shape: RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(20.0))),
 //            Text(
 //              'You have pushed the button this many times:',
 //            ),
@@ -121,7 +143,8 @@ class _MyHomePageState extends State<MyHomePage> {
 //              '$_counter',
 //              style: Theme.of(context).textTheme.display1,
 //            ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

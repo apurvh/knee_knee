@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-import 'package:path_provider/path_provider.dart';
+//import 'package:path_provider/path_provider.dart';
 
 
 import 'package:charts_flutter/flutter.dart' as charts;
@@ -15,52 +15,62 @@ class _S4State extends State<S4> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Card(
-                elevation: 1.0,
-                child: Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: Container(
-                    width: 300,
-                    height: 300,
-                    child: PointsLineChart.withSampleData(),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Text("Improvement Chart"),
-              SizedBox(
-                height: 30,
-              ),
-              RaisedButton(
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Row(
-                    children: <Widget>[
-                      Icon(Icons.done,color: Colors.green,),
-                      Text("  Done",style: TextStyle(color: Colors.green),),
-                    ],
-                  ),
-                ),
-                color: Colors.white,
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                shape: RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(30.0),
-                ),
-              ),
-            ],
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/screen_s1.jpg"),
+//              image: AssetImage("assets/img/knee_animation.gif"),
+            fit: BoxFit.cover,
           ),
-        ],
+        ),
+        width: MediaQuery.of(context).size.width,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Card(
+                  elevation: 1.0,
+                  child: Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: Container(
+                      width: 300,
+                      height: 300,
+                      child: PointsLineChart.withSampleData(),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Text("Improvement Chart"),
+                SizedBox(
+                  height: 30,
+                ),
+                RaisedButton(
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      children: <Widget>[
+                        Icon(Icons.done,color: Colors.green,),
+                        Text("  Done",style: TextStyle(color: Colors.green),),
+                      ],
+                    ),
+                  ),
+                  color: Colors.white,
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  shape: RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(30.0),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
