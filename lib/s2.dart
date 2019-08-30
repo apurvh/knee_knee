@@ -3,13 +3,16 @@ import 'dart:async';
 import 'package:percent_indicator/percent_indicator.dart';
 import 's3.dart';
 
-import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
+import 'package:path_provider/path_provider.dart';
+
+
+//import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 //import 'dart:async';
-//import 'dart:io';
+import 'dart:io';
 import 'dart:ui';
 //import 'package:charcode/ascii.dart';
-import 'dart:convert';
-import 'dart:typed_data';
+//import 'dart:convert';
+//import 'dart:typed_data';
 import 'main.dart';
 import 'package:flutter/services.dart';
 
@@ -59,6 +62,31 @@ class _S2State extends State<S2> {
       _getWData = result;
       print("_getWdata list " + _getWData.toString());
       print("_getWdata list " + _getWData.length.toString());
+
+      ///write the data to file
+      ///
+      //get filename
+      String dFileName = DateTime.now().millisecondsSinceEpoch.toString();
+      //get file address
+      Directory appDocDir = await getApplicationDocumentsDirectory();
+
+        new Directory(appDocDir.path + '/' + 'dd').create(recursive: true)
+        // The created directory is returned as a Future.
+            .then((Directory directory) {
+          print('Path of New Dir: ' + directory.path);
+        });
+
+
+      String appDocPath = appDocDir.path +"/dd/"+dFileName;
+
+      //write to file as string
+      final file = File('$appDocPath');
+      await file.writeAsString(_getWData.toString()).then((V){
+        print("...data is written in file");
+      });
+      ///writing data to file is over
+      ///
+
     } on PlatformException catch (e) {
       _getWData = ["Failed: '${e.message}'."];
     }

@@ -164,7 +164,7 @@ class SimpleLineChart extends StatelessWidget {
     ];
     maxValueAngle = 0;
 //    final parsedDataList = [];
-    for (int i = 1; i < 600; i++) {
+    for (int i = 1; i < 520; i++) {
       int parsedData = double.parse(getWData[i].toString()).toInt();
       data.add(new LinearSales(i, parsedData));
 //      parsedDataList.add(parsedData);
