@@ -95,17 +95,19 @@ class _S1State extends State<S1> {
                   height: 80,
                 ),
                 RaisedButton(
-                  elevation: 3.0,
+                    elevation: 3.0,
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
-                      child: Text("       Records      "),
+                      child: Text("       Prev Records      "),
                     ),
                     color: Colors.white,
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => S4(),
-                        ),);
+                        MaterialPageRoute(
+                          builder: (context) => S4(),
+                        ),
+                      );
                     },
                     shape: RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(30.0))),
@@ -113,17 +115,19 @@ class _S1State extends State<S1> {
                   height: 14,
                 ),
                 RaisedButton(
-                  elevation: 3.0,
+                    elevation: 3.0,
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
-                      child: Text("          Start          "),
+                      child: Text("          Start New          "),
                     ),
                     color: Colors.white,
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => S2(),
-                        ),);
+                        MaterialPageRoute(
+                          builder: (context) => S2(),
+                        ),
+                      );
                     },
                     shape: RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(30.0))),

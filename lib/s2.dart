@@ -20,7 +20,7 @@ class S2 extends StatefulWidget {
 
 class _S2State extends State<S2> {
   Timer _timer;
-  int _start = 5;
+  int _start = 26;
 
   void startTimer() {
     print("...timer started.");
@@ -51,48 +51,25 @@ class _S2State extends State<S2> {
   static const platform = const MethodChannel('get_w_data');
 
   Future<void> _getWData() async {
-
+//    print("init _getWData");
     List _getWData = new List();
-
+    getWData = [];
     try {
-      final List result = await platform.invokeMethod('xxxxx');
+      final List result = await platform.invokeMethod("xxxxx");
       _getWData = result;
+      print("_getWdata list " + _getWData.toString());
+      print("_getWdata list " + _getWData.length.toString());
     } on PlatformException catch (e) {
-      _getWData = ["Failed to get battery level: '${e.message}'."];
+      _getWData = ["Failed: '${e.message}'."];
     }
 
     setState(() {
       getWData = _getWData;
+//      print("setState _getWData");
+//      print("init $getWData");
     });
+//    print("end $_getWData");
   }
-
-
-//  Future connectB() async {
-//    String _address;
-//    FlutterBluetoothSerial.instance.address.then((address) {
-//      setState(() { _address = address; });
-//    });
-//    // Some simplest connection :F
-//    try {
-//      BluetoothConnection connection = await BluetoothConnection.toAddress(_address);
-//      print('Connected to the device');
-//
-//      connection.input.listen((Uint8List data) {
-//        print('Data incoming: ${ascii.decode(data)}');
-//        connection.output.add(data); // Sending data
-//
-//        if (ascii.decode(data).contains('!')) {
-//          connection.finish(); // Closing connection
-//          print('Disconnecting by local host');
-//        }
-//      }).onDone(() {
-//        print('Disconnected by remote request');
-//      });
-//    }
-//    catch (exception) {
-//      print('Cannot connect, exception occured');
-//    }
-//  }
 
   @override
   void initState() {
@@ -142,15 +119,17 @@ class _S2State extends State<S2> {
               ),
               Text(
                 "Move Your knee!",
-                style: TextStyle(fontSize: 18.0,fontWeight: FontWeight.bold,color: Colors.red),
+                style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red),
               ),
               SizedBox(
                 height: 15,
               ),
-
               Text(
                 "$_start Seconds",
-                style: TextStyle(fontSize: 11.0,color: Colors.red[800]),
+                style: TextStyle(fontSize: 11.0, color: Colors.red[800]),
               ),
               SizedBox(
                 height: 2,
@@ -159,7 +138,7 @@ class _S2State extends State<S2> {
                 child: new LinearPercentIndicator(
                   width: 200.0,
                   lineHeight: 2.0,
-                  percent: (1 - _start / 5),
+                  percent: (1 - _start / 26),
                   backgroundColor: Colors.grey[200],
                   progressColor: Colors.red[500],
                 ),

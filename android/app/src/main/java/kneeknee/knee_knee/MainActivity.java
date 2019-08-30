@@ -62,14 +62,33 @@ public class MainActivity extends FlutterActivity {
 //                  text = call.argument("text");
 //                  String batteryLevel = RandomFunction(text);
 
-                  twentysecfunc();
+//                  twentysecfunc();
+                  Log.d("My Bluetooth App", "c1" );
+                  connectDevice(hcman);
+                  Log.d("My Bluetooth App", "c2" );
 
-                  if (list != null) {
-                    result.success(list);
-                    list.clear();
-                  } else {
-                    result.error("...ERROR", "some error happened", null);
-                  }
+                  //delay 20 seconds
+                  final Handler handler = new Handler();
+                  handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                      //Do something after 20000ms
+                      onCloseConnection();
+                      if (list != null) {
+                        result.success(list);
+                        list.clear();
+                      } else {
+                        result.error("...ERROR", "some error happened", null);
+                      }
+                    }
+                  }, 20000);
+
+//                  if (list != null) {
+//                    result.success(list);
+//                    list.clear();
+//                  } else {
+//                    result.error("...ERROR", "some error happened", null);
+//                  }
                 } else {
                   result.notImplemented();
                 }
@@ -78,21 +97,21 @@ public class MainActivity extends FlutterActivity {
 
   }
 
-  private void twentysecfunc(){
-    Log.d("My Bluetooth App", "c1" );
-    connectDevice(hcman);
-    Log.d("My Bluetooth App", "c2" );
-
-    //delay 20 seconds
-    final Handler handler = new Handler();
-    handler.postDelayed(new Runnable() {
-      @Override
-      public void run() {
-        //Do something after 20000ms
-        onCloseConnection();
-      }
-    }, 5000);
-  }
+//  private void twentysecfunc(){
+//    Log.d("My Bluetooth App", "c1" );
+//    connectDevice(hcman);
+//    Log.d("My Bluetooth App", "c2" );
+//
+//    //delay 20 seconds
+//    final Handler handler = new Handler();
+//    handler.postDelayed(new Runnable() {
+//      @Override
+//      public void run() {
+//        //Do something after 20000ms
+//        onCloseConnection();
+//      }
+//    }, 20000);
+//  }
 
 //  @SuppressLint("CheckResult")
   private void connectDevice(String mac) {

@@ -5,8 +5,9 @@ import 's1.dart';
 
 void main() => runApp(MyApp());
 
-List getWData = new List();
-
+List getWData = [];
+int maxValueAngle = 0;
+int minValueAngle = 180;
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -110,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
               children: <Widget>[
                 RaisedButton(
-                  elevation: 3.0,
+                    elevation: 3.0,
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: Text("          Sign In         "),
@@ -123,7 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 14,
                 ),
                 RaisedButton(
-                  elevation: 3.0,
+                    elevation: 3.0,
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: Text("           Login           "),
