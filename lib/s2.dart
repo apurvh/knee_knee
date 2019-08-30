@@ -10,7 +10,8 @@ import 'dart:ui';
 //import 'package:charcode/ascii.dart';
 import 'dart:convert';
 import 'dart:typed_data';
-
+import 'main.dart';
+import 'package:flutter/services.dart';
 
 class S2 extends StatefulWidget {
   @override
@@ -45,39 +46,58 @@ class _S2State extends State<S2> {
     );
   }
 
+  // Get battery level.
+//  String _batteryLevel = 'Unknown battery level.';
+  static const platform = const MethodChannel('get_w_data');
 
+  Future<void> _getWData() async {
 
-  Future connectB() async {
-    String _address;
-    FlutterBluetoothSerial.instance.address.then((address) {
-      setState(() { _address = address; });
-    });
-    // Some simplest connection :F
+    List _getWData = new List();
+
     try {
-      BluetoothConnection connection = await BluetoothConnection.toAddress(_address);
-      print('Connected to the device');
-
-      connection.input.listen((Uint8List data) {
-        print('Data incoming: ${ascii.decode(data)}');
-        connection.output.add(data); // Sending data
-
-        if (ascii.decode(data).contains('!')) {
-          connection.finish(); // Closing connection
-          print('Disconnecting by local host');
-        }
-      }).onDone(() {
-        print('Disconnected by remote request');
-      });
-    }
-    catch (exception) {
-      print('Cannot connect, exception occured');
+      final List result = await platform.invokeMethod('xxxxx');
+      _getWData = result;
+    } on PlatformException catch (e) {
+      _getWData = ["Failed to get battery level: '${e.message}'."];
     }
 
+    setState(() {
+      getWData = _getWData;
+    });
   }
+
+
+//  Future connectB() async {
+//    String _address;
+//    FlutterBluetoothSerial.instance.address.then((address) {
+//      setState(() { _address = address; });
+//    });
+//    // Some simplest connection :F
+//    try {
+//      BluetoothConnection connection = await BluetoothConnection.toAddress(_address);
+//      print('Connected to the device');
+//
+//      connection.input.listen((Uint8List data) {
+//        print('Data incoming: ${ascii.decode(data)}');
+//        connection.output.add(data); // Sending data
+//
+//        if (ascii.decode(data).contains('!')) {
+//          connection.finish(); // Closing connection
+//          print('Disconnecting by local host');
+//        }
+//      }).onDone(() {
+//        print('Disconnected by remote request');
+//      });
+//    }
+//    catch (exception) {
+//      print('Cannot connect, exception occured');
+//    }
+//  }
 
   @override
   void initState() {
     startTimer();
+    _getWData();
 //    connectB();
     super.initState();
   }

@@ -5,6 +5,9 @@ import 's1.dart';
 
 void main() => runApp(MyApp());
 
+List getWData = new List();
+
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
