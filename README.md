@@ -2,8 +2,12 @@
 # knee_knee App
 
 A Wearble Goniometer support application.
-Knee Knee App supports Goniometer wearable device which is designed to track changes in the angle of movement in the knee of TKR(Total knee replacement) patients.
-(know more: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6195503/)
+Knee Knee App supports Goniometer wearable device which is designed to track changes in the angle of movement in the knee of TKR(Total knee replacement) patients. 
+
+- HCO5 Bluettooth module is used to transfer data between app and sensors
+- App is built using Flutter
+
+(know more about clinical concept: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6195503/)
 
 ## Problem: 
 
